@@ -1,5 +1,40 @@
 var song_playing = "";
 times = 0;
+var color1 = 0;
+window.addEventListener('load',()=>{
+    setInterval(autoload, 2000);
+    document.getElementById('header').style = `    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    height: 50px;
+    background-color: rgba(240, 248, 255, 0.151);
+    border-radius: 8px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: aliceblue;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('./images/favicon.png');
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position: 10px 50%;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 20;
+    transition: all ease-in-out 2s;
+    `;
+    
+});
+
+function autoload()
+{
+    color1 = Math.floor(Math.random() * 200)+55;
+    document.body.style.backgroundColor = `rgb(4, 68, `+color1+`)`;
+    document.body.style.backgroundAttachment = "fixed";
+    document.body.style.transition = "all ease-in-out 1s";
+}
 
 function play_song(song_index)
 {
