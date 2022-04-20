@@ -1,15 +1,16 @@
+
 var song_playing = "";
 times = 0;
 var color1 = 0;
 window.addEventListener('load',()=>{
     setInterval(autoload, 2000);
     document.getElementById('header').style = `    position: absolute;
-    top: 10px;
-    left: 10px;
-    right: 10px;
+    top: 0;
+    left: 0;
+    right: 0;
     height: 50px;
     background-color: rgba(240, 248, 255, 0.151);
-    border-radius: 8px;
+    border-radius: 0px;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: aliceblue;
     font-size: 20px;
@@ -30,8 +31,6 @@ window.addEventListener('load',()=>{
 
 function autoload()
 {
-    color1 = Math.floor(Math.random() * 200)+55;
-    document.body.style.backgroundColor = `rgb(4, 68, `+color1+`)`;
     document.body.style.backgroundAttachment = "fixed";
     document.body.style.transition = "all ease-in-out 1s";
 }
@@ -80,7 +79,7 @@ function play_song(song_index)
     }
     else if (song_index == 9)
     {
-        song_playing = "hands_to_myself";
+        song_playing = "let_me_love_you";
         start(song_playing);
     }
     else if (song_index == 10)
@@ -100,6 +99,7 @@ function start(song_name)
     }
     song_current = new Audio("https://sherry65-code.github.io/song_lib/"+song_name+".mp3");
     song_current.play();
+    document.getElementById('header').innerHTML = "Playing - "+song_name.replace('_',' ').replace('_',' ').replace('_',' ').replace('_',' ').replace('_',' ');
 }
 function play(play_index)
 {
@@ -117,3 +117,5 @@ function play(play_index)
         
     }
 }
+// 716
+
