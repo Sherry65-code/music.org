@@ -1,4 +1,3 @@
-
 var song_playing = "";
 times = 0;
 var color1 = 0;
@@ -26,9 +25,28 @@ window.addEventListener('load',()=>{
     z-index: 20;
     transition: all ease-in-out 2s;
     `;
-    
+    autotype1();
 });
-
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+ }
+x=0;
+async function autotype1()
+{
+ y=0;   
+    while (y<24)
+    {
+        await sleep(500);
+        y+=1;    
+        add_word();
+}
+}
+function add_word()
+{
+    word = ['W','e','l','c','o','m','e',' ', 't','o',' ','I','n','v','e','n','t','o',' ','M','u','s','i','c'];
+    document.getElementById('banner').innerHTML +=word[x];
+    x+=1;
+}
 function autoload()
 {
     document.body.style.backgroundAttachment = "fixed";
@@ -85,6 +103,11 @@ function play_song(song_index)
     else if (song_index == 10)
     {
         song_playing = "old_town_road";
+        start(song_playing);
+    }
+    else if (song_index == 11)
+    {
+        song_playing = "walls";
         start(song_playing);
     }
 }
