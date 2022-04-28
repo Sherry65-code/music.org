@@ -123,6 +123,7 @@ function start(song_name)
     song_current = new Audio("https://sherry65-code.github.io/song_lib/"+song_name+".mp3");
     song_current.play();
     document.getElementById('header').innerHTML = "Playing - "+song_name.replace('_',' ').replace('_',' ').replace('_',' ').replace('_',' ').replace('_',' ');
+    document.title = song_name;
 }
 function play(play_index)
 {
