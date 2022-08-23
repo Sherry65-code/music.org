@@ -110,6 +110,8 @@ function play_song(song_index)
         song_playing = "walls";
         start(song_playing);
     }
+    document.getElementById('player').style.backgroundImage = "url('https://sherry65-code.github.io/music_img/"+(parseInt(song_index)-1)+".jpg')";
+    document.getElementById('webicon').href = "https://sherry65-code.github.io/music_img/"+(parseInt(song_index)-1)+".jpg";
 }
 function start(song_name)
 {
@@ -120,22 +122,23 @@ function start(song_name)
         song_current.pause();
         song_current = "";
     }
+    songCUR = song_name.replace('_',' ').replace('_',' ').replace('_',' ').replace('_',' ').replace('_',' ');
     song_current = new Audio("https://sherry65-code.github.io/song_lib/"+song_name+".mp3");
     song_current.play();
-    document.getElementById('header').innerHTML = "Playing - "+song_name.replace('_',' ').replace('_',' ').replace('_',' ').replace('_',' ').replace('_',' ');
-    document.title = song_name;
+    document.title = songCUR;
+    document.getElementById('songname').innerHTML = songCUR;
 }
 function play(play_index)
 {
     if (play_index == 0)
     {
-        document.getElementById('player').innerHTML = `<button class="playn" onclick="play(1)"></button>`;
+        document.getElementById('player').innerHTML = `<button id="songname">`+songCUR+`</button><button class="playn" onclick="play(1)"></button>`;
         play_index = 1;
         song_current.pause();
     }
     else
     {
-        document.getElementById('player').innerHTML = `<button class="play" onclick="play(0)"></button>`;
+        document.getElementById('player').innerHTML = `<button id="songname">`+songCUR+`</button><button class="play" onclick="play(0)"></button>`;
         play_index = 0;
         song_current.play();
         
